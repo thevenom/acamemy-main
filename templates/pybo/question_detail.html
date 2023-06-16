@@ -36,12 +36,12 @@
         {% csrf_token %}
         {% if form.errors %}
         <div class="alert alert-danger" role="alert">
-        {% for field in form %}
-            {% if field.errors %}
-            <strong>{{ field.label }}</strong>
-            {{ field.errors}}
-            {% endif %}
-        {% endfor %}
+            {% for field in form %}
+                {% if field.errors %}
+                <strong>{{ field.label }}</strong>
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
         </div>
         {% endif %}
         <div class="form-group">

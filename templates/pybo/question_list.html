@@ -18,6 +18,11 @@
                 <td>
                     <a href="{% url 'pybo:detail' question.id %}">
                         {{ question.subject }}
+                        {% if question.answer_set.count > 0 %}
+                        <span class="text-danger small ml-2">
+                            {{ question.answer_set.count }}
+                        </span>
+                        {% endif %}
                     </a>
                 </td>
                 <td>{{ question.create_date }}</td>
@@ -30,7 +35,6 @@
             {% endif %}
         </tbody>
     </table>
-
     <ul class="pagination justify-content-center">
         {% if question_list.has_previous %}
         <li class="page-item">
@@ -76,7 +80,6 @@
         </li>
         {% endif %}
     </ul>
-
     <a href="{% url 'pybo:question_create' %}" class="btn btn-secondary">
         질문 등록하기
     </a>
